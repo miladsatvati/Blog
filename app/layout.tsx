@@ -4,7 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-
+import ReactQuery from "@/services/ReactQuery";
 
 
 
@@ -24,6 +24,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,15 +36,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-        </ThemeProvider>
+        <ReactQuery>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            {children}
+          </ThemeProvider>
+        </ReactQuery>
       </body>
     </html>
   );
