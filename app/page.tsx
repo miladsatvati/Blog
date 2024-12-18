@@ -26,7 +26,7 @@ export default function Home() {
           <h1 className="text-4xl font-semibold">Categories</h1>
         </div>
         <div className="categoryMD w-full grid grid-cols-1 gap-10">
-          <div className="dark:bg-[#0D1829] bg-slate-100 eachCategory rounded-lg h-72 ">
+          <div className="dark:bg-[#0D1829] bg-slate-100 eachCategory rounded-lg">
             <h3 className="text-md text-[#9ba9bed0]">CATEGORY</h3>
             <h1 className="text-2xl">Raclette Blueberry Nextious</h1>
             <p className="text-[#667ca8]">
