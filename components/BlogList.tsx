@@ -7,7 +7,7 @@ import { GetBlogDatas } from "@/services/queries";
 import { TailSpin } from "react-loader-spinner";
 // import { useState } from "react";
 
-interface Blog {
+export interface Blog {
   id: number;
   title: string;
   description: string;

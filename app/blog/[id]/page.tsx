@@ -1,34 +1,29 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import React from "react";
-import { blogs } from "@/Data/blogs";
+import BlogContent from "@/components/BlogContent";
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
+import { GetData } from "@/Data/Fetches";
 
-interface BlogSlugParams {
-    params: {
-        id: string
-    }
-}
-function BlogSlug({params}: BlogSlugParams) {
+type BlogSlugParams = Promise<{ id: string }>;
 
-    const bloog = blogs.find((blog) => {
-        if (blog.id === parseInt(params.id)) {
-            return blog
-        }
-    })
-    
+export default async function BlogSlug({ params }: { params: BlogSlugParams }) {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery({
+    queryKey: ["blogsData"],
+    queryFn: GetData,
+  });
 
-    
+  const { id } = await params;
+
+
   return (
-    <div>
-        <MaxWidthWrapper className="flex flex-col justify-center items-center gap-10">
-            <h1 className="text-center text-3xl"><span className="text-red-500">Title:</span> {bloog?.title}</h1>
-            <p>
-                {
-                    bloog?.content
-                }
-            </p>
-        </MaxWidthWrapper>
+    <div className="md:max-w-7xl mx-auto">
+        <HydrationBoundary state={dehydrate(queryClient)}>
+            <BlogContent id={id} />
+        </HydrationBoundary>
     </div>
-  )
+  );
 }
-
-export default BlogSlug

@@ -12,7 +12,7 @@
 const url = "http://localhost:8000/blogs";
 
 export const GetData = async () => {
-  const res = await fetch(url);
+  const res = await fetch(url, {cache: 'no-store'});
   try{
 
       if(!res.ok){

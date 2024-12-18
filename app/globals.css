@@ -61,6 +61,14 @@ body {
     --chart-5: 340 75% 55%;
   }
 }
+@layer utilities {
+  .categoryMD {
+    @apply md:flex md:flex-row  md:justify-between md:gap-8 pt-8 md:max-w-7xl
+  }
+  .eachCategory {
+    @apply md:w-1/3 flex flex-col gap-5 items-center md:p-5 p-2.5 mb-5
+  }
+}
 
 @layer base {
   * {
