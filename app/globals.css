@@ -6,6 +6,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.aboutContainer {
+  height: 100%;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -67,6 +71,21 @@ body {
   }
   .eachCategory {
     @apply md:w-1/3 flex flex-col gap-5 items-center md:p-5 p-2.5 mb-5
+  }
+  .mainContact {
+    @apply sm:max-w-7xl sm:mx-auto px-4 sm:px-6 lg:px-8
+  }
+  .hOneContact {
+    @apply sm:text-3xl sm:max-w-96 sm:mt-20
+  }
+  .boxInsideMain {
+    @apply dark:bg-[#0D1829] rounded-lg sm:max-w-3xl sm:mt-20 flex flex-col  items-center h-[34rem] shadow-xl 
+  }
+  .formContact {
+    @apply sm:max-w-3xl sm:p-3 flex flex-col gap-4 mt-4
+  }
+  .aboutBox {
+    @apply sm:w-2/4 sm:h-96 bg-white rounded-lg flex shadow-xl dark:bg-[#152a48]
   }
 }
 
