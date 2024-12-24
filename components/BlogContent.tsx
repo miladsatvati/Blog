@@ -7,7 +7,6 @@ import { Blog } from "./BlogList";
 function BlogContent({ id }: { id: string }) {
   const { data } = GetBlogDatas();
 
-  // const findBlog = data?.find((item: Blog) => item.id === parseInt(id))
 
   if (data) {
     const eachData: Blog = data?.find((item: Blog) => item.id == parseInt(id));

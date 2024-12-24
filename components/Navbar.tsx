@@ -10,7 +10,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
@@ -41,7 +40,7 @@ const Navbar = () => {
         <li className="buttons px-4 space-x-2">
           <div className="flex items-center">
             <SignedOut>
-              <SignInButton mode="modal"/>
+              <SignInButton mode="modal" />
             </SignedOut>
             <SignedIn>
               <UserButton showName />
@@ -60,11 +59,6 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent>
               <SheetHeader>
-                {/* <SheetTitle>Are you absolutely sure?</SheetTitle>
-                <SheetDescription>
-                  This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
-                </SheetDescription> */}
                 <SheetTitle>
                   <SheetClose asChild>
                     <Link href="/">Home</Link>
